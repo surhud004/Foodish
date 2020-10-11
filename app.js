@@ -1,9 +1,11 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 
 var app = express();
 
+app.use(cors());
 app.use('/images', express.static(__dirname + '/public/assets/images'));
 app.use('/assets', express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');

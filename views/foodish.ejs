@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div class="container">
-        <h1><img src="/assets/logo.png" alt="logo" height="60"/> Foodish</h1>
+        <h1><img src="/assets/logo.png" alt="logo" title="Samosa" height="60"/> Foodish</h1>
         <p class="lead">&#x1F372; Random pictures of food dishes. &#x1F35B;</p>
         <div class="row align-items-center">
             <div class="col">
@@ -31,9 +31,9 @@
                 <% } %>
                 <% if (food.image) { %>
                     <span>Share this foodish : </span>
-                    <input type="text" class="form-control" value="https://foodish.herokuapp.com/images/<%= food.image %>"/>
+                    <input type="text" class="form-control" value="https://foodish-api.herokuapp.com/images/<%= food.image %>"/>
                 <% } %>
-                <span>API available at : <a href="https://foodish.herokuapp.com/api/">https://foodish.herokuapp.com/api/</a></span>
+                <span>API available at : <a href="https://foodish-api.herokuapp.com/api/">https://foodish-api.herokuapp.com/api/</a></span>
                 </div>
             </div>
         </div>
