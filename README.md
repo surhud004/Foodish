@@ -13,7 +13,7 @@ Base URL for all endpoints https://foodish-api.herokuapp.com/
 
 _The response time will likely be a few seconds long on the first request, because this app is running on a free Heroku dyno. Subsequent requests will behave as normal._
 
-## Endpoints
+### Endpoints
 Routes | Description
 ------------ | -------------
 `GET /api/` | Random food dish from random category.
@@ -40,6 +40,12 @@ Example Response-
 {"image":"https://foodish-api.herokuapp.com/images/biryani/biryani32.jpg"}
 ```
 ----------------------------
+## Usage
+* You are designing a restaurant website and you want to add random food pictures as placeholders.
+* You are creating a guess the food dish game.
+* You are ordering a pizza but you just want a random choice, visit https://foodish-api.herokuapp.com/images/pizza/ because that's fun! Didn't like the pizza? Just hit refresh!
+* You just like to see food pictures (visual hunger) because _you eat with your eyes first._
+
 ## Authors
 * [Surhud Bhagali](https://github.com/surhud004)
 * Special thanks to [Rajaraman Ekambaram](https://github.com/Rtech2014) for providing the initial Foodish image database via [Kaggle](https://www.kaggle.com/datasets).
