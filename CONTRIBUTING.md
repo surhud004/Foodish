@@ -5,7 +5,22 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-## Pull Request Process
+## Contributing to the Foodish Image Database
+* **Accepted image format** - `.jpg` (_Please convert the images to only .jpg file extension before submitting._)
+* **Minimum image dimensions** - `500 x anything` or `anything x 500`
+### Creating a new issue
+1. Once you've formatted all the images according to the above specifications, create a new issue.
+2. The name of the issue would be `Add to {food category}: {Number} image(s)`.
+3. Attach the image(s) / paste the link of image(s) in the comment box directly in the issue and submit.
+
+Example entry-
+```
+Image - Mac_and_Cheese.jpg (550 x 375)
+New Issue - Add to pasta: 1 image
+```
+
+## Contributing to the Source Code
+### Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a
    build.
@@ -73,7 +88,7 @@ further defined and clarified by project maintainers.
 ### Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at liyascthomas@gmail.com. All
+reported by contacting the project team at surhud004@gmail.com. All
 complaints will be reviewed and investigated and will result in a response that
 is deemed necessary and appropriate to the circumstances. The project team is
 obligated to maintain confidentiality with regard to the reporter of an incident.
