@@ -5,7 +5,7 @@ h1, li, span {
     font-family: 'Lobster', cursive;
 }
 .footer {
-    position: absolute;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
