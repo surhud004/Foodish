@@ -3,6 +3,8 @@
 
 A Node.js/Express.js REST API to GET a random picture of food dishes.
 
+![](https://img.shields.io/badge/contributions-welcome-34cdfa)
+
 ## Demo
 Visit https://foodish-api.herokuapp.com/
 
