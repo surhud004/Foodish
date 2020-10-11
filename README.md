@@ -31,6 +31,8 @@ Routes | Description
 ------------ | -------------
 `GET /api/images/:food` | Random picture from `food` category.
 
+Please visit the [demo](https://github.com/surhud004/Foodish#demo) website to view the list of available `food` categories.
+
 Example Request-
 
 `GET /api/images/biryani`
