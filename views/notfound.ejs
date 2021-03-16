@@ -21,7 +21,11 @@
         <% if (food.foodDB) { %>
             <ul>
                 <% food.foodDB.forEach((dish) => { %>
-                    <li><%= dish.title %> : <%= dish.count %></li>
+                    <% if (dish.title === 'Total Foodishes') { %>
+                        <li><%= dish.title %> : <%= dish.count %></li>
+                    <% } else { %>
+                        <li><a href="https://foodish-api.herokuapp.com/images/<%= dish.title %>/"><%= dish.title %></a> : <%= dish.count %></li>
+                    <% } %>
                 <% }) %>
             </ul>
         <% } %>
@@ -30,7 +34,7 @@
         <br>
         <span>Read the Documentation at : <a href="https://github.com/surhud004/Foodish#readme">Foodish</a></span>
         <footer class="footer">
-            <p class="lead">Designed and Coded by : <a href="https://github.com/surhud004">surhud004</a> &copy; 2020</p>
+            <p class="lead">Designed and Coded by : <a href="https://github.com/surhud004">surhud004</a> &copy; <%= new Date().getFullYear(); %></p>
             <!-- Build date : 10th October 2020 -->
         </footer>
     </div>
