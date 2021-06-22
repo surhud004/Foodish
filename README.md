@@ -61,7 +61,8 @@ Please [create a new issue](https://github.com/surhud004/Foodish/issues/new) for
 Please read the [CONTRIBUTING](https://github.com/surhud004/Foodish/blob/master/CONTRIBUTING.md) for details on adding images to the Foodish Database.
 
 ## Contributors
-* [Angelina Tsuboi](https://github.com/angelina-tsuboi)
+* [angelina-tsuboi](https://github.com/angelina-tsuboi)
+* [ElijahRus250](https://github.com/ElijahRus250)
 
 ## License
 This project is licensed under [MIT](https://opensource.org/licenses/MIT). Please read the [LICENSE](https://github.com/surhud004/Foodish/blob/master/LICENSE) for details.
