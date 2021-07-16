@@ -40,7 +40,7 @@ try {
       }
     });
   });
-  core.setOutput("Success", "Image Size check passed!");
+  console.log("Success: Image Size check passed!");
 } catch (error) {
   core.setFailed(error.message ? error.message : error);
 }
