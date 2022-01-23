@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "deploy-script": "node scripts/deployment/updateImageCount.js",
+    "dev": "nodemon app.js",
     "pretty-all": "npx prettier --write .",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "test": "node test/checkImageSize.js"
   },
   "repository": {
