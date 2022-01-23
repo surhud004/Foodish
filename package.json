@@ -4,7 +4,9 @@
   "description": "Random pictures of food dishes.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "deploy-script": "node scripts/deployment/updateImageCount.js",
+    "pretty-all": "npx prettier --write .",
+    "start": "nodemon app.js",
     "test": "node test/checkImageSize.js"
   },
   "repository": {
@@ -26,5 +28,11 @@
   },
   "engines": {
     "node": "16.13.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "prettier": "2.5.1"
   }
 }
