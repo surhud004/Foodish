@@ -2,7 +2,7 @@ name: Run Foodish images check
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:

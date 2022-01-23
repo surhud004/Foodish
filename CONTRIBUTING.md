@@ -6,20 +6,25 @@ email, or any other method with the owners of this repository before making a ch
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
 ## Contributing to the Foodish Image Database
-* **Accepted image format** - `.jpg` (_Please convert the images to only .jpg file extension before submitting._)
-* **Minimum image dimensions** - `500 x anything` or `anything x 500`
+
+- **Accepted image format** - `.jpg` (_Please convert the images to only .jpg file extension before submitting._)
+- **Minimum image dimensions** - `500 x anything` or `anything x 500`
+
 ### Creating a new issue
+
 1. Once you've formatted all the images according to the above specifications, create a new issue.
 2. The name of the issue would be `Add to {food category}: {Number} image(s)`.
 3. Attach the image(s) / paste the link of image(s) in the comment box directly in the issue and submit.
 
 Example entry-
+
 ```
 Image - Mac_and_Cheese.jpg (550 x 375)
 New Issue - Add to pasta: 1 image
 ```
 
 ## Contributing to the Source Code
+
 ### Pull Request Process
 
 1. Ensure any install or build dependencies are removed before the end of the layer when doing a
@@ -47,21 +52,21 @@ orientation.
 Examples of behavior that contributes to creating a positive environment
 include:
 
-* Using welcoming and inclusive language
-* Being respectful of differing viewpoints and experiences
-* Gracefully accepting constructive criticism
-* Focusing on what is best for the community
-* Showing empathy towards other community members
+- Using welcoming and inclusive language
+- Being respectful of differing viewpoints and experiences
+- Gracefully accepting constructive criticism
+- Focusing on what is best for the community
+- Showing empathy towards other community members
 
 Examples of unacceptable behavior by participants include:
 
-* The use of sexualized language or imagery and unwelcome sexual attention or
-advances
-* Trolling, insulting/derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or electronic
+- The use of sexualized language or imagery and unwelcome sexual attention or
+  advances
+- Trolling, insulting/derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or electronic
   address, without explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
+- Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
 ### Our Responsibilities

@@ -1,13 +1,15 @@
 img {
-    max-height: 70vh;
+  max-height: 70vh;
 }
-h1, li, span {
-    font-family: 'Lobster', cursive;
+h1,
+li,
+span {
+  font-family: 'Lobster', cursive;
 }
 .footer {
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
 }
