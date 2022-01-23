@@ -4,6 +4,7 @@
   "description": "Random pictures of food dishes.",
   "main": "app.js",
   "scripts": {
+    "deploy-script": "node scripts/deployment/updateImageCount.js",
     "start": "node app.js",
     "test": "node test/checkImageSize.js"
   },

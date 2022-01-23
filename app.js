@@ -12,20 +12,21 @@ app.set('view engine', 'ejs');
 
 const getImageCount = () => {
     let imageMetaData = [];
-    let totalCount = 0;
-    let menuDB = fs.readdirSync(`./public/assets/images`);
-    menuDB.forEach((eachFoodDB) => {
-        let foodDB = fs.readdirSync(`./public/assets/images/${eachFoodDB}`);
-        totalCount += foodDB.length;
-        imageMetaData.push({
-            title: eachFoodDB,
-            count: foodDB.length
-        });
-    });
-    imageMetaData.push({
-        title: 'Total Foodishes',
-        count: totalCount
-    });
+    const imageMetaDataFetch = fs.readFileSync('./scripts/deployment/imageMetaData.json', 'utf-8');
+    const imageMetaDataJSON = JSON.parse(imageMetaDataFetch);
+    for(let obj in imageMetaDataJSON) {
+        if (obj === 'total') {
+            imageMetaData.push({
+                title: 'Total Foodishes',
+                count: imageMetaDataJSON[obj]
+            });
+        } else {
+            imageMetaData.push({
+                title: obj,
+                count: imageMetaDataJSON[obj]
+            });
+        }
+    }
     return imageMetaData;
 };
 
