@@ -11,6 +11,8 @@ app.use('/images', express.static(`${__dirname}/public/assets/images`));
 app.use('/assets', express.static(`${__dirname}/public`));
 app.set('view engine', 'ejs');
 
+const MENU_DB = ['biryani', 'burger', 'butter-chicken', 'dessert', 'dosa', 'idly', 'pasta', 'pizza', 'rice', 'samosa'];
+
 const getImageCount = () => {
   const imageMetaData = [];
   const imageMetaDataFetch = fs.readFileSync('./scripts/deployment/imageMetaData.json', 'utf-8');
@@ -33,24 +35,24 @@ const getImageCount = () => {
 
 // UI CALLS
 app.get('/', (req, res) => {
-  // menuDB is ['biryani', 'burger', 'pizza']
-  const menuDB = fs.readdirSync('./public/assets/images');
-
-  // random number generator within menuDB array range
-  const randomSelector = Math.floor(Math.random() * menuDB.length);
+  // random number generator within MENU_DB array range
+  const randomSelector = Math.floor(Math.random() * MENU_DB.length);
 
   // anyRandomFood is burger
-  const anyRandomFood = menuDB[randomSelector];
+  const anyRandomFood = MENU_DB[randomSelector];
 
-  // random number generator within all burger images
-  const randomFoodDB = fs.readdirSync(`./public/assets/images/${anyRandomFood}`);
+  // random number generator within all burger model images
+  // randomFoodDB is the array of objects from the json model
+  const randomFoodModel = JSON.parse(fs.readFileSync(`./models/${anyRandomFood}.json`, 'utf8'));
+  const randomFoodDB = randomFoodModel[anyRandomFood];
 
-  // catchOfTheDay is burger101.jpg
-  const catchOfTheDay = Math.floor(Math.random() * randomFoodDB.length + 1);
+  // catchOfTheDay is the object with image burger101.jpg
+  const randomFood = Math.floor(Math.random() * randomFoodDB.length);
+  const catchOfTheDay = randomFoodDB[randomFood];
 
   res.render('foodish', {
     food: {
-      image: `${anyRandomFood}/${anyRandomFood}${catchOfTheDay}.jpg`,
+      image: `${anyRandomFood}/${catchOfTheDay.image}`,
       foodDB: getImageCount()
     }
   });
@@ -60,18 +62,47 @@ app.get('/images/:food', (req, res) => {
   // food is pizza
   const { food } = req.params;
 
-  // foodPath points to pizza directory
-  const foodPath = `./public/assets/images/${food}`;
+  let finalFood;
 
-  // check if pizza directory exists
+  // (optional) keyword is margherita
+  const keyword = req.query.keyword ? req.query.keyword : '';
+
+  // foodPath points to pizza model
+  const foodPath = `./models/${food}.json`;
+
+  // check if pizza model exists
   if (fs.existsSync(foodPath)) {
-    // get all pizza images
-    const foodDB = fs.readdirSync(foodPath);
+    // get all pizza images from pizza model
+    const foodModel = JSON.parse(fs.readFileSync(foodPath, 'utf8'));
+    const foodDB = foodModel[food];
 
-    // randomly select one pizza image
-    const randomFood = Math.floor(Math.random() * foodDB.length + 1);
+    // check if keyword requested
+    if (keyword) {
+      // filter pizza images matching with keyword margherita
+      let filteredFood = [];
+      foodDB.forEach((eachFood) => {
+        eachFood.keywords.forEach((key) => {
+          if (key.toLowerCase() === keyword.toLowerCase()) {
+            filteredFood.push(eachFood);
+          }
+        });
+      });
+      // randomly select one pizza image if none matched
+      if (filteredFood.length === 0) {
+        const randomFood = Math.floor(Math.random() * foodDB.length);
+        finalFood = foodDB[randomFood];
+      } else {
+        // randomly select one pizza image from filteredFood
+        const randomFood = Math.floor(Math.random() * filteredFood.length);
+        finalFood = filteredFood[randomFood];
+      }
+    } else {
+      // randomly select one pizza image
+      const randomFood = Math.floor(Math.random() * foodDB.length);
+      finalFood = foodDB[randomFood];
+    }
 
-    res.render('foodish', { food: { image: `${food}/${food}${randomFood}.jpg` } });
+    res.render('foodish', { food: { image: `${food}/${finalFood.image}` } });
   } else {
     res.render('notfound', { food: { foodDB: getImageCount() } });
   }
@@ -80,13 +111,14 @@ app.get('/images/:food', (req, res) => {
 // API CALLS
 app.get('/api', (req, res) => {
   try {
-    const menuDB = fs.readdirSync('./public/assets/images');
-    const randomSelector = Math.floor(Math.random() * menuDB.length);
-    const anyRandomFood = menuDB[randomSelector];
-    const randomFoodDB = fs.readdirSync(`./public/assets/images/${anyRandomFood}`);
-    const catchOfTheDay = Math.floor(Math.random() * randomFoodDB.length + 1);
+    const randomSelector = Math.floor(Math.random() * MENU_DB.length);
+    const anyRandomFood = MENU_DB[randomSelector];
+    const randomFoodModel = JSON.parse(fs.readFileSync(`./models/${anyRandomFood}.json`, 'utf8'));
+    const randomFoodDB = randomFoodModel[anyRandomFood];
+    const randomFood = Math.floor(Math.random() * randomFoodDB.length);
+    const catchOfTheDay = randomFoodDB[randomFood];
     res.status(200).send({
-      image: `https://foodish-api.herokuapp.com/images/${anyRandomFood}/${anyRandomFood}${catchOfTheDay}.jpg`
+      image: `https://foodish-api.herokuapp.com/images/${anyRandomFood}/${catchOfTheDay.image}`
     });
   } catch (error) {
     res.status(500).send({ error });
@@ -96,11 +128,33 @@ app.get('/api', (req, res) => {
 app.get('/api/images/:food', (req, res) => {
   try {
     const { food } = req.params;
-    const foodPath = `./public/assets/images/${food}`;
+    let finalFood;
+    const keyword = req.query.keyword ? req.query.keyword : '';
+    const foodPath = `./models/${food}.json`;
     if (fs.existsSync(foodPath)) {
-      const foodDB = fs.readdirSync(foodPath);
-      const randomFood = Math.floor(Math.random() * foodDB.length + 1);
-      res.status(200).send({ image: `https://foodish-api.herokuapp.com/images/${food}/${food}${randomFood}.jpg` });
+      const foodModel = JSON.parse(fs.readFileSync(foodPath, 'utf8'));
+      const foodDB = foodModel[food];
+      if (keyword) {
+        let filteredFood = [];
+        foodDB.forEach((eachFood) => {
+          eachFood.keywords.forEach((key) => {
+            if (key.toLowerCase() === keyword.toLowerCase()) {
+              filteredFood.push(eachFood);
+            }
+          });
+        });
+        if (filteredFood.length === 0) {
+          const randomFood = Math.floor(Math.random() * foodDB.length);
+          finalFood = foodDB[randomFood];
+        } else {
+          const randomFood = Math.floor(Math.random() * filteredFood.length);
+          finalFood = filteredFood[randomFood];
+        }
+      } else {
+        const randomFood = Math.floor(Math.random() * foodDB.length);
+        finalFood = foodDB[randomFood];
+      }
+      res.status(200).send({ image: `https://foodish-api.herokuapp.com/images/${food}/${finalFood.image}` });
     } else {
       res.status(404).send({ error: 'Not found.' });
     }
