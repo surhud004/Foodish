@@ -118,7 +118,7 @@ app.get('/api', (req, res) => {
     const randomFood = Math.floor(Math.random() * randomFoodDB.length);
     const catchOfTheDay = randomFoodDB[randomFood];
     res.status(200).send({
-      image: `https://foodish-api.herokuapp.com/images/${anyRandomFood}/${catchOfTheDay.image}`
+      image: `https://foodish-api.com/images/${anyRandomFood}/${catchOfTheDay.image}`
     });
   } catch (error) {
     res.status(500).send({ error });
@@ -154,7 +154,7 @@ app.get('/api/images/:food', (req, res) => {
         const randomFood = Math.floor(Math.random() * foodDB.length);
         finalFood = foodDB[randomFood];
       }
-      res.status(200).send({ image: `https://foodish-api.herokuapp.com/images/${food}/${finalFood.image}` });
+      res.status(200).send({ image: `https://foodish-api.com/images/${food}/${finalFood.image}` });
     } else {
       res.status(404).send({ error: 'Not found.' });
     }

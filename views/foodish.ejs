@@ -28,24 +28,24 @@
                             <% if (dish.title === 'Total Foodishes') { %>
                                 <li><%= dish.title %> : <%= dish.count %></li>
                             <% } else { %>
-                                <li><a href="https://foodish-api.herokuapp.com/images/<%= dish.title %>/"><%= dish.title %></a> : <%= dish.count %></li>
+                                <li><a href="https://foodish-api.com/images/<%= dish.title %>/"><%= dish.title %></a> : <%= dish.count %></li>
                             <% } %>
                         <% }) %>
                     </ul>
                 <% } %>
                 <% if (food.image) { %>
                     <span>Share this foodish : </span>
-                    <input type="text" class="form-control" value="https://foodish-api.herokuapp.com/images/<%= food.image %>"/>
+                    <input type="text" class="form-control" value="https://foodish-api.com/images/<%= food.image %>"/>
                 <% } %>
                 <br>
-                <span>API available at : <a href="https://foodish-api.herokuapp.com/api/">https://foodish-api.herokuapp.com/api/</a></span>
+                <span>API available at : <a href="https://foodish-api.com/api/">https://foodish-api.com/api/</a></span>
                 <br>
                 <span>Read the Documentation at : <a href="https://github.com/surhud004/Foodish#readme">Foodish</a></span>
                 <br>
                 <br>
-                <span>Try a Random Burger : <a href="https://foodish-api.herokuapp.com/images/burger/">https://foodish-api.herokuapp.com/images/burger/</a></span>
+                <span>Try a Random Burger : <a href="https://foodish-api.com/images/burger/">https://foodish-api.com/images/burger/</a></span>
                 <br>
-                <span>Try an Unknown Foodish : <a href="https://foodish-api.herokuapp.com/images/somefoodish/">https://foodish-api.herokuapp.com/images/somefoodish/</a></span>
+                <span>Try an Unknown Foodish : <a href="https://foodish-api.com/images/somefoodish/">https://foodish-api.com/images/somefoodish/</a></span>
                 </div>
             </div>
         </div>
