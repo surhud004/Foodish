@@ -7,6 +7,8 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Contributing to the Foodish Image Database
 
+- **IMPORTANT** Please ensure the image(s) you are contributing to the Foodish Image Database is/are either your own creation or free to use, for example, image(s) published under the Creative Commons [CCO License](https://creativecommons.org/public-domain/cc0/).
+
 - **Accepted image format** - `.jpg` (_Please convert the images to only .jpg file extension before submitting._)
 - **Minimum image dimensions** - `500 x anything` or `anything x 500`
 
