@@ -1,6 +1,8 @@
 const express = require('express');
 const fs = require('fs');
 const cors = require('cors');
+const swaggerUI = require('swagger-ui-express');
+const swaggerJSON = require('./docs/swagger-api.json');
 
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +12,8 @@ app.use(cors());
 app.use('/images', express.static(`${__dirname}/public/assets/images`));
 app.use('/assets', express.static(`${__dirname}/public`));
 app.set('view engine', 'ejs');
+
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON));
 
 const MENU_DB = ['biryani', 'burger', 'butter-chicken', 'dessert', 'dosa', 'idly', 'pasta', 'pizza', 'rice', 'samosa'];
 
@@ -35,6 +39,7 @@ const getImageCount = () => {
 
 // UI CALLS
 app.get('/', (req, res) => {
+  // #swagger.ignore = true
   // random number generator within MENU_DB array range
   const randomSelector = Math.floor(Math.random() * MENU_DB.length);
 
@@ -59,6 +64,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/images/:food', (req, res) => {
+  // #swagger.ignore = true
   // food is pizza
   const { food } = req.params;
 
@@ -110,6 +116,19 @@ app.get('/images/:food', (req, res) => {
 
 // API CALLS
 app.get('/api', (req, res) => {
+  // #swagger.tags = ['API']
+  // #swagger.description = 'Get a random food dish image.'
+  /* #swagger.responses[200] = {
+            description: "OK",
+            content: {
+                "application/json": {
+                    example:{
+                        image: "https://foodish-api.com/images/burger/burger101.jpg"
+                    }
+                }           
+            }
+        }   
+    */
   try {
     const randomSelector = Math.floor(Math.random() * MENU_DB.length);
     const anyRandomFood = MENU_DB[randomSelector];
@@ -126,6 +145,21 @@ app.get('/api', (req, res) => {
 });
 
 app.get('/api/images/:food', (req, res) => {
+  // #swagger.tags = ['API']
+  // #swagger.description = 'Get a random food dish image from "food" category.'
+  // #swagger.parameters['food'] = { description: 'Required food category.' }
+  // #swagger.parameters['keyword'] = { description: 'Optional filter for food category image. (Beta version: only works for pizza food category. More details: https://github.com/surhud004/Foodish/discussions/14).' }
+  /* #swagger.responses[200] = {
+            description: "OK",
+            content: {
+                "application/json": {
+                    example:{
+                        image: "https://foodish-api.com/images/burger/burger101.jpg"
+                    }
+                }           
+            }
+        }   
+    */
   try {
     const { food } = req.params;
     let finalFood;
