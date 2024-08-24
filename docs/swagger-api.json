@@ -1,0 +1,84 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Foodish API",
+    "description": "A Node.js/Express.js REST API to GET a random picture of food dishes."
+  },
+  "servers": [
+    {
+      "url": "https://foodish-api.com",
+      "description": "Foodish API server"
+    }
+  ],
+  "paths": {
+    "/api": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "description": "Get a random food dish image.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "image": "https://foodish-api.com/images/burger/burger101.jpg"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/images/{food}": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "description": "Get a random food dish image from \"food\" category.",
+        "parameters": [
+          {
+            "name": "food",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Required food category."
+          },
+          {
+            "name": "keyword",
+            "description": "Optional filter for food category image. (Beta version: only works for pizza food category. More details: https://github.com/surhud004/Foodish/discussions/14).",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "example": {
+                  "image": "https://foodish-api.com/images/burger/burger101.jpg"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

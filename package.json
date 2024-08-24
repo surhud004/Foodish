@@ -7,8 +7,9 @@
     "deploy-script": "node scripts/deployment/updateImageCount.js",
     "dev": "nodemon app.js",
     "pretty-all": "npx prettier --write .",
-    "start": "node app.js",
-    "test": "node test/checkImageSize.js"
+    "start": "node ./docs/swagger.js && node app.js",
+    "test": "node test/checkImageSize.js",
+    "swagger-gen": "node ./docs/swagger.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,8 @@
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "prettier": "3.1.1"
+    "prettier": "3.1.1",
+    "swagger-autogen": "^2.23.7",
+    "swagger-ui-express": "^5.0.1"
   }
 }
