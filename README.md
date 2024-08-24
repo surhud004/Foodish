@@ -10,6 +10,8 @@ Visit https://foodish-api.com/
 
 ## API Documentation
 
+#### OpenAPI Specification Swagger v3: https://foodish-api.com/api-docs
+
 Base URL for all endpoints https://foodish-api.com/
 
 _The response time will likely be a few seconds long on the first request, because this app is running on a free instance. Subsequent requests will behave as normal._
@@ -77,6 +79,7 @@ Please read the [CONTRIBUTING](https://github.com/surhud004/Foodish/blob/main/CO
 ## Credits
 
 Foodish would not be possible without the work of:
+
 - [Rajaraman Ekambaram](https://github.com/Rtech2014) for providing the initial Foodish image database via [Kaggle](https://www.kaggle.com/datasets).
 - [RitaE](https://pixabay.com/users/ritae-19628/) for providing some additional Foodish images via [Pixabay](https://pixabay.com/).
 
