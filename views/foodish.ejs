@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Foodish</title>
-	<!-- Logo -->
-	<link rel="shortcut icon" href="/assets/logo.ico">
-	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
-	<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>Foodish</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Logo -->
+    <link rel="shortcut icon" href="/assets/logo.ico">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="/assets/styles.css">
 </head>
+
 <body>
-	<div class="container">
-        <h1><img src="/assets/logo.png" alt="logo" title="Samosa" height="60"/> Foodish</h1>
-        <p class="lead">&#x1F372; Random pictures of food dishes. &#x1F35B;</p>
-        <div class="row align-items-center">
-            <div class="col">
+    <div>
+        <div id="nav">
+            <img src="/assets/logo.png" alt="logo" title="Samosa" height="60" /> Foodish
+            <br>
+        </div>
+        <p id="subhead">&#x1F372; Random pictures of food dishes. &#x1F35B;</p>
+        <div id="mainbox">
+            <div id="imagebox">
                 <% if (food.image) { %>
-                    <img src="/images/<%= food.image %>" alt="foodish"/>
-                <% } %>
+                    <img src="/images/<%= food.image %>" alt="foodish" />
+                    <% } %>
             </div>
-            <div class="col">
+            <div id="linksbox">
                 <% if (food.foodDB) { %>
                     <ul>
-                        <% food.foodDB.forEach((dish) => { %>
-                            <% if (dish.title === 'Total Foodishes') { %>
-                                <li><%= dish.title %> : <%= dish.count %></li>
-                            <% } else { %>
-                                <li><a href="https://foodish-api.com/images/<%= dish.title %>/"><%= dish.title %></a> : <%= dish.count %></li>
-                            <% } %>
-                        <% }) %>
+                        <% food.foodDB.forEach((dish)=> { %>
+                            <% if (dish.title==='Total Foodishes' ) { %>
+                                <li>
+                                    <%= dish.title %> : <%= dish.count %>
+                                </li>
+                                <% } else { %>
+                                    <li><a href="https://foodish-api.com/images/<%= dish.title %>/">
+                                            <%= dish.title %>
+                                        </a> : <%= dish.count %>
+                                    </li>
+                                    <% } %>
+                                        <% }) %>
                     </ul>
-                <% } %>
-                <% if (food.image) { %>
-                    <span>Share this foodish : </span>
-                    <input type="text" class="form-control" value="https://foodish-api.com/images/<%= food.image %>"/>
-                <% } %>
-                <br>
-                <span>API available at : <a href="https://foodish-api.com/api/">https://foodish-api.com/api/</a></span>
-                <br>
-                <span>Read the Documentation at : <a href="https://github.com/surhud004/Foodish#readme">Foodish</a></span>
-                <br>
-                <br>
-                <span>Try a Random Burger : <a href="https://foodish-api.com/images/burger/">https://foodish-api.com/images/burger/</a></span>
-                <br>
-                <span>Try an Unknown Foodish : <a href="https://foodish-api.com/images/somefoodish/">https://foodish-api.com/images/somefoodish/</a></span>
-                </div>
+                    <% } %>
+                        <% if (food.image) { %>
+                            <span>Share this foodish : </span>
+                            <input type="text" class="form-control"
+                                value="https://foodish-api.com/images/<%= food.image %>" />
+                            <% } %>
+                                <br>
+                                <span>API available at : <a
+                                        href="https://foodish-api.com/api/">https://foodish-api.com/api/</a></span>
+                                <br>
+                                <span>Read the Documentation at : <a
+                                        href="https://github.com/surhud004/Foodish#readme">Foodish</a></span>
+                                <br>
+                                <br>
+                                <span>Try a Random Burger : <a
+                                        href="https://foodish-api.com/images/burger/">https://foodish-api.com/images/burger/</a></span>
+                                <br>
+                                <span>Try an Unknown Foodish : <a
+                                        href="https://foodish-api.com/images/somefoodish/">https://foodish-api.com/images/somefoodish/</a></span>
             </div>
         </div>
-        <footer class="footer">
-            <p class="lead">Designed and Coded by : <a href="https://github.com/surhud004">surhud004</a> &copy; 2020 - <%= new Date().getFullYear(); %></p>
-            <!-- Build date : 10th October 2020 -->
-        </footer>
     </div>
+</div>
+<footer class="footer">
+    <p class="lead">Designed and Coded by : <a href="https://github.com/surhud004">surhud004</a> &copy; 2020 - <%=
+            new Date().getFullYear(); %>
+    </p>
+    <!-- Build date : 10th October 2020 -->
+</footer>
 </body>
+
 </html>
