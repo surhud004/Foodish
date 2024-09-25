@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root{
+  --primary-color: rgb(47, 79, 79);
+  --secondary-color: rgb(222, 184, 135);
+}
 * {
   margin: 0px;
   padding: 0px;
@@ -20,6 +24,7 @@ body div {
     rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+    background-color: var(--primary-color);
 }
 #imagebox img {
   outline: 2px solid rgba(0, 0, 0, 0.582);
@@ -30,24 +35,25 @@ body div {
 #nav {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: 1.5rem;
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  padding: 10px 0px;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 15px 0px;
 }
 #nav img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin: 0px 10px 0px 25px;
 }
 #subhead {
-  padding: 10px 0px 10px 35px;
-  text-align: center;
+  padding: 15px 0px 15px 30px;
   font-size: 1.2rem;
   outline: solid 1px white;
   box-shadow: inset 0px 3px 7px 1px rgba(0, 0, 0, 0.466);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
 }
 #mainbox {
   margin: 50px 30px 50px 30px;
@@ -68,6 +74,7 @@ body div {
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   border-radius: 8px;
   width: 40%;
+  background-color: var(--secondary-color);
 }
 #linksbox ul {
   list-style-type: none;
@@ -121,8 +128,8 @@ body div {
 }
 
 .footer {
-  background-color: #2c3e50;
-  color: #ecf0f1;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   padding: 20px 0;
   text-align: center;
   font-family: 'Arial', sans-serif;
