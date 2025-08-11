@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-:root{
+:root {
   --primary-color: rgb(47, 79, 79);
   --secondary-color: rgb(222, 184, 135);
 }
@@ -24,7 +24,7 @@ body div {
     rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
     rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em,
     rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
-    background-color: var(--primary-color);
+  background-color: var(--primary-color);
 }
 #imagebox img {
   outline: 2px solid rgba(0, 0, 0, 0.582);
@@ -133,7 +133,7 @@ body div {
   padding: 20px 0;
   text-align: center;
   font-family: 'Arial', sans-serif;
-  position:relative;
+  position: relative;
   bottom: 0;
   width: 100%;
   box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.3);
@@ -167,12 +167,12 @@ body div {
 .errorbox {
   align-items: center;
   flex-direction: column;
-  gap:10px !important;
+  gap: 10px !important;
 }
 .errorbox #linksbox {
   width: 90%;
 }
-h2{
+h2 {
   text-align: center;
 }
 /* media quaries  */
@@ -198,7 +198,7 @@ h2{
   #linksbox {
     width: 90%;
   }
-  #subhead{
+  #subhead {
     font-size: 1rem;
   }
 }

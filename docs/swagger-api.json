@@ -14,9 +14,7 @@
   "paths": {
     "/api": {
       "get": {
-        "tags": [
-          "API"
-        ],
+        "tags": ["API"],
         "description": "Get a random food dish image.",
         "responses": {
           "200": {
@@ -37,9 +35,7 @@
     },
     "/api/images/{food}": {
       "get": {
-        "tags": [
-          "API"
-        ],
+        "tags": ["API"],
         "description": "Get a random food dish image from \"food\" category.",
         "parameters": [
           {

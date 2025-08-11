@@ -22,21 +22,22 @@
   },
   "homepage": "https://github.com/surhud004/Foodish#readme",
   "dependencies": {
-    "@actions/core": "^1.10.1",
-    "cors": "^2.8.5",
-    "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "image-size": "^1.1.1"
+    "@actions/core": "1.10.1",
+    "cors": "2.8.5",
+    "ejs": "3.1.10",
+    "express": "4.21.2",
+    "image-size": "1.2.1"
   },
   "engines": {
-    "node": ">=16.13.2"
+    "node": ">=18.0.0 <20.0.0",
+    "npm": ">=9.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.56.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "prettier": "3.3.3",
-    "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.1"
+    "eslint": "8.57.1",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-plugin-import": "2.29.1",
+    "prettier": "3.6.2",
+    "swagger-autogen": "2.23.7",
+    "swagger-ui-express": "5.0.1"
   }
 }
