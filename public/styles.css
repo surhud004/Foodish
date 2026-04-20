@@ -1,16 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
+  --backdrop-color: #ffffff;
   --primary-color: rgb(47, 79, 79);
   --secondary-color: rgb(222, 184, 135);
+  --tertiary-color: #f1f1f1;
+  --tertiary-active-color: #e9ecef;
+  --text-color-hard: #343a40;
+  --text-color-soft: #6c757d;
+  --hyperlink-color: #007bff;
+  --githublink-color: #1abc9c;
+  --githublink-active-color: #16a085;
+  --input-active-border-color: #0056b3;
 }
+
+html.dark {
+  --backdrop-color: #1a1a1a;
+  --primary-color: #2e2e2e;
+  --secondary-color: #5e5e5e;
+  --tertiary-color: #808080;
+  --tertiary-active-color: #969696;
+  --text-color-hard: #ffffff;
+  --text-color-soft: #c5c5c5;
+  --hyperlink-color: #52d1ff;
+  --githublink-color: #434ac3;
+  --githublink-active-color: #6666a8;
+  --input-active-border-color: #444444;
+}
+
 * {
   margin: 0px;
   padding: 0px;
+  transition: background-color 0.7s ease, color 0.7s ease, border-color 0.7s ease;
 }
 html,
 body {
   overflow-x: hidden;
   height: 100%;
+  background-color: var(--backdrop-color);
 }
 body div {
   font-family: 'Lobster', cursive;
@@ -35,12 +61,35 @@ body div {
 #nav {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-size: 1.5rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  padding: 15px 0px;
+  padding: 15px 30px;
 }
+#nav span{
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  border: none;
+  background: var(--secondary-color);
+  color: var(--tertiary-active-color);
+  padding: 10px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
 #nav img {
   width: 50px;
   height: 50px;
@@ -50,7 +99,7 @@ body div {
 #subhead {
   padding: 15px 0px 15px 30px;
   font-size: 1.2rem;
-  outline: solid 1px white;
+  outline: solid 1px var(--backdrop-color);
   box-shadow: inset 0px 3px 7px 1px rgba(0, 0, 0, 0.466);
   background-color: var(--secondary-color);
   color: var(--primary-color);
@@ -66,7 +115,7 @@ body div {
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-style: normal;
-  color: #343a40;
+  color: var(--text-color-hard);
   padding: 20px;
   box-shadow:
     rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em,
@@ -86,7 +135,7 @@ body div {
 }
 
 #linksbox ul li {
-  background-color: #f1f1f1;
+  background-color: var(--tertiary-color);
   border-radius: 6px;
   transition: all 0.3s ease;
   width: 40%;
@@ -94,32 +143,33 @@ body div {
 }
 
 #linksbox ul li:hover {
-  background-color: #e9ecef;
+  background-color: var(--tertiary-active-color);
 }
 
 #linksbox input.form-control {
   padding: 10px;
   width: 90%;
   margin: 10px 0;
-  border: 2px solid #007bff;
+  border: 2px solid var(--hyperlink-color);
   border-radius: 6px;
   font-size: 16px;
-  color: #495057;
+  color: var(--text-color-hard);
   overflow-x: scroll;
+  background-color: var(--tertiary-color);
 }
 
 #linksbox input.form-control:focus {
   outline: none;
-  border-color: #0056b3;
+  border-color: var(--input-active-border-color);
 }
 
 #linksbox span {
   font-size: 0.9rem;
-  color: #6c757d;
+  color: var(--text-color-soft);
 }
 
 #linksbox a {
-  color: #007bff;
+  color: var(--hyperlink-color);
   text-decoration: none;
 }
 
@@ -145,14 +195,14 @@ body div {
 }
 
 .footer a {
-  color: #1abc9c;
+  color: var(--githublink-color);
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .footer a:hover {
-  color: #16a085;
+  color: var(--githublink-active-color);
 }
 
 .footer::before {
@@ -160,7 +210,7 @@ body div {
   display: block;
   width: 50px;
   height: 3px;
-  background: #1abc9c;
+  background: var(--githublink-color);
   margin: 0 auto 10px;
   border-radius: 3px;
 }
